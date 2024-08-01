@@ -22,69 +22,69 @@
     </script>
   </head>
 
-  <body>
+  <body >
     <div class="container text-center mt-5">
       <h1>Stimulus JS ⚡️</h1>
+
       <div class="row">
-        <!-- The disable button controller code run from here -->
         <div 
-          data-controller="disable-button"
-          data-disable-button-example-value="Stan is stan"
-          class="col-12 pt-1"
-        >
+          data-disable-button-caption-value="Click me again!"
+          data-controller="disable-button" 
+          class="col-12 pt-1">
           <button 
+            data-disable-button-target="clickMe"
+            data-action="click->disable-button#disable" 
             id="clickme" 
             class="btn btn-primary btn-lg"
-            data-action="click->disable-button#disable"
-            data-disable-button-target="clickMe"
-          >
-            Click me!
-          </button>
-          <button
-            class="btn btn-outline-primary btn-lg d-none"
-            data-disable-button-target="reset"
+          >Click me!</button>
+          <button 
             data-action="click->disable-button#enable"
-          >
-            Reset
-          </button>
+            data-disable-button-target="resetBtn" 
+            class="btn btn-outline-primary btn-lg d-none"
+          >Reset</button>
         </div>
-        <!-- To here -->
       </div>
 
+      <div class="row">
+        <div 
+          data-disable-button-caption-value="Click me if you can!"
+          data-controller="disable-button" 
+          class="col-12 pt-1">
+          <button 
+            data-disable-button-target="clickMe"
+            data-action="click->disable-button#disable" 
+            id="clickme" 
+            class="btn btn-primary btn-lg"
+          >Click me!</button>
+          <button 
+            data-action="click->disable-button#enable"
+            data-disable-button-target="resetBtn" 
+            class="btn btn-outline-primary btn-lg d-none"
+          >Reset</button>
+        </div>
+      </div>
 
-
-
-      <div class="col-12" data-controller="movie">
+      <div data-controller="movie" class="col-12">
         <form class="row g-2 justify-content-center py-5">
-          
           <div class="col-4">
             <input 
+            data-movie-target="input"
               type="text" 
-              class="form-control" 
-              data-movie-target="input"
-            />
+              class="form-control" />
           </div>
 
           <div class="col-1">
             <input 
-              type="submit" 
-              class="btn btn-primary"
               data-action="click->movie#search"
-            />
+              type="submit" 
+              class="btn btn-primary" />
           </div>
-
         </form>
 
         <ul 
-          class="list-group list-group-vertical"
           data-movie-target="list"
-        >
-
-        </ul>
-
+          class="list-group list-group-vertical"></ul>
       </div>
-
-
 
     </div>
     <script src="javascript/application.js" type="module"></script>
